@@ -1,0 +1,40 @@
+---
+snakefile: snakeFile
+cores: 8
+latency-wait: 30
+reason: True
+show-failed-logs: True
+keep-going: True
+printshellcmds: True
+rerun-incomplete: True
+restart-times: 3
+# Cluster submission
+jobname: "{rule}.{jobid}"              # Provide a custom name for the jobscript that is submitted to the cluster.
+max-jobs-per-second: 1                 #Maximal number of cluster/drmaa jobs per second, default is 10, fractions allowed.
+max-status-checks-per-second: 10       #Maximal number of job status checks per second, default is 10
+jobs: 32                              #Use at most N CPU cluster/cloud jobs in parallel.
+
+cluster: "sbatch --mem={resources.mem_mb} --time={resources.runtime}"
+
+# Job resources
+default-resources:
+  - mem_mb=2000
+  - runtime='24h'
+
+
+
+# cluster:
+#   sbatch
+#     --cpus-per-task={resources.cpus}
+#     --mem={resources.mem_mb}
+#     --time={resources.time_min}
+#     --output=logs/{rule}_{jobid}.out
+#     --error=logs/{rule}_{jobid}.err
+# default-resources:
+#   - mem_mb=2000
+#   - cpus=1
+#   - time_min=480
+# jobs: 32
+# latency-wait: 60
+# local-cores: 8
+
