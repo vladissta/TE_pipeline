@@ -1,0 +1,5 @@
+input_files: /home/nilmbb/share/plants/WGS/chickpea/2023/bam/{number}.sorted.bam
+output_dir: test_out/
+hierarchy_file: /home/nilmbb/vstanin/hierarchy.txt
+reference_genome: /home/nilmbb/vstanin/genome_merged/merged_ref.fa
+# /home/nilmbb/share/plants/WGS/chickpea/2023/TE/
