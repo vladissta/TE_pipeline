@@ -25,7 +25,6 @@ rule make_bwa_index:
         config["reference_genome"]
     output:
         expand(config["reference_genome"] + ".{ext}", ext=['sa', 'pac', 'bwt', 'ann', 'amb'])
-        # touch('index.done')
     shell:
         """
         bwa index {input}
